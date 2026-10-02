@@ -1,6 +1,6 @@
 #ifndef TOKEN_H
 #define TOKEN_H
-
+#include <stddef.h>
 
 
 typedef enum {
@@ -61,22 +61,17 @@ typedef enum {
 
 } TokenKind;
 
- typedef struct {
+typedef struct {
  int line;
  int column;
  } SourceLocation;
 
- typedef struct {
-
+typedef struct {
  TokenKind kind;
- char *lexeme;
+ const char *lexeme;
+ size_t length;
  SourceLocation location;
-
-
-
-
- } Token;
-
+} Token;
 
  #endif // TOKEN_H
 
